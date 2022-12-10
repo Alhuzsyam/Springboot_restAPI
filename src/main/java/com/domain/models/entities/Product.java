@@ -2,6 +2,11 @@ package com.domain.models.entities;
 
 import java.io.Serializable;
 
+import org.apache.logging.log4j.message.Message;
+import org.springframework.validation.annotation.Validated;
+
+import io.micrometer.common.lang.NonNull;
+
 // import org.springframework.boot.autoconfigure.domain.EntityScan;
 // import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy;
 
@@ -12,6 +17,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "tbl_product")
@@ -21,14 +27,16 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // @Column(name = "product_name",length = 150)
     @Column(name = "product_name", nullable = false)
+    @NotEmpty(message="name is required")
     private String name;
     
     // @Column(name = "product_description",length = 250)
     @Column(name = "product_description", nullable = false)
+    @NotEmpty(message="description is required")
     private String description;
 
+    // @NotEmpty(message="price is required")
     private Double price;
 
     public long getId() {
