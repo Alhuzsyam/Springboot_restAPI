@@ -18,7 +18,6 @@
 Methode | #Post 
 --- | ---
 Path | http://localhost:8080/api/product
---- | ---
 {
 		"id": 2,
 		"name": "test1",
@@ -47,7 +46,7 @@ Path | http://localhost:8080/api/product/{id}
 Methode | #Update
 --- | ---
 Path | http://localhost:8080/api/product 
---- | ---
+
 {
 		"id": 2,
 		"name": "test1",
